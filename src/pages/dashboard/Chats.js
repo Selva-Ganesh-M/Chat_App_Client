@@ -113,6 +113,7 @@ const Chats = () => {
         >
             {/* container */}
             <Stack spacing={2} sx={{ height: "100vh", padding: "16px 16px 0px" }}>
+
                 {/* section - header */}
                 <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
                     <Typography variant={"h5"} >
@@ -133,8 +134,6 @@ const Chats = () => {
                     </Search>
                 </Stack>
 
-
-
                 {/* section - archives header group */}
                 <Stack spacing={1}>
                     {/* part - archives header */}
@@ -150,7 +149,7 @@ const Chats = () => {
                 </Stack>
 
                 {/* wrapper: pinned + public messages */}
-                <Stack spacing={2} sx={{ flexGrow: 1, overflowY: "scroll", height: "100%" }}>
+                <Stack spacing={2} sx={{ flexGrow: 1, overflowY: "scroll" }}>
                     {/* custom scroll bar */}
                     {/* <SimpleBarStyle timeout={500} clickOnTrack={false}> */}
                     {/* section - pinned messages */}

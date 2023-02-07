@@ -25,14 +25,14 @@ const Footer = () => {
                         disableUnderline: true,
                         // Adornment: are things that you can add to the start and end of an input InputBase
                         startAdornment: (
-                            <InputAdornment>
+                            <InputAdornment position='start'>
                                 <IconButton>
                                     <LinkSimple />
                                 </IconButton>
                             </InputAdornment>
                         ),
                         endAdornment: (
-                            <InputAdornment>
+                            <InputAdornment position='end'>
                                 <IconButton>
                                     <Smiley />
                                 </IconButton>

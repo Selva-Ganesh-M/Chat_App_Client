@@ -183,6 +183,12 @@ const Chat_History = [
   },
   {
     type: "msg",
+    message: "Yep, I can also do that",
+    incoming: true,
+    outgoing: false,
+  },
+  {
+    type: "msg",
     subtype: "link",
     preview: faker.image.cats(),
     message: "Yep, I can also do that",
