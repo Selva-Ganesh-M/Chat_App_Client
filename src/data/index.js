@@ -173,17 +173,16 @@ const Chat_History = [
     incoming: false,
     outgoing: true,
   },
-
   {
     type: "msg",
-    subtype: "doc",
-    message: "Yes sure, here you go.",
+    message: "Yep, I can also do that",
     incoming: true,
     outgoing: false,
   },
   {
     type: "msg",
-    message: "Yep, I can also do that",
+    subtype: "doc",
+    message: "Yes sure, here you go.",
     incoming: true,
     outgoing: false,
   },

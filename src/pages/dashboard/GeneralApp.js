@@ -15,7 +15,11 @@ const GeneralApp = () => {
         {/* section - chats */}
         <Chats />
         {/* section - conversations */}
-        <Box sx={{ width: "calc(100vw - 420px)", backgroundColor: theme.palette.mode === "light" ? "#fff" : theme.palette.background.default }}>
+        <Box
+          sx={{
+            width: "calc(100vw - 420px)",
+            backgroundColor: theme.palette.mode === "light" ? "#F0F4FA" : theme.palette.background.default,
+          }}>
           <Conversation />
         </Box>
       </Stack>
