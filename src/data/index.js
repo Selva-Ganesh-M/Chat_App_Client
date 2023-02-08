@@ -206,6 +206,12 @@ const Chat_History = [
     incoming: false,
     outgoing: true,
   },
+  {
+    type: "msg",
+    message: "sjsjksadlsjdflkjslfk;jaslfkjslkjaslfkjslkjaslfkjslkjaslfkjslkjaslfkjslkjaslfkjjaslfkjslkjaslfkjslkjaslfkjslkjaslfkjslkjaslfkjslkjaslfkjjaslfkjslkjaslfkjslkjaslfkjslkjaslfkjslkjaslfkjslkjaslfkj",
+    incoming: true,
+    outgoing: false,
+  },
 ];
 
 const Message_Menu_Items = [
