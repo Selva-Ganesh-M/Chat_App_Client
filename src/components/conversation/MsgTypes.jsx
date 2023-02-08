@@ -2,6 +2,7 @@ import { Box, Divider, IconButton, Link, Stack, Typography } from '@mui/material
 import { useTheme } from "@mui/material/styles"
 import { DownloadSimple, Image } from 'phosphor-react'
 import React from 'react'
+import MessageOptions from './MessageOptions'
 
 
 // document message
@@ -35,8 +36,10 @@ const DocMsg = ({ item }) => {
                         {item.message}
                     </Typography>
                 </Stack>
-
             </Box>
+
+            {/* menu */}
+            <MessageOptions />
         </Stack>
     )
 }
@@ -48,6 +51,7 @@ const TextMsg = ({ item }) => {
     return (
         <>
             <Stack direction={"row"} justifyContent={item.incoming ? "flex-start" : "flex-end"}>
+                {/* message */}
                 <Box
                     p={1.5}
                     sx={{ backgroundColor: item.incoming ? theme.palette.background.paper : theme.palette.primary.main }}
@@ -57,6 +61,12 @@ const TextMsg = ({ item }) => {
                         {item.message}
                     </Typography>
                 </Box>
+
+                {/* menu toggler */}
+                <MessageOptions />
+
+                {/* menu */}
+
             </Stack>
         </>
     )
@@ -93,6 +103,8 @@ const LinkMsg = ({ item }) => {
                     </Typography>
                 </Stack>
             </Box>
+            {/* menu */}
+            <MessageOptions />
         </Stack>
     )
 }
@@ -125,6 +137,8 @@ const ReplyMsg = ({ item }) => {
                 </Box>
             </Stack>
         </Box>
+        {/* menu */}
+        <MessageOptions />
     </Stack>
 }
 
@@ -154,6 +168,8 @@ const MediaMsg = ({ item }) => {
                     </Box>
                 </Stack>
             </Box >
+            {/* menu */}
+            <MessageOptions />
         </Stack >
     )
 }

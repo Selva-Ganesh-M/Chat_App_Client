@@ -208,7 +208,7 @@ const Chat_History = [
   },
 ];
 
-const Message_options = [
+const Message_Menu_Items = [
   {
     title: "Reply",
   },
@@ -269,6 +269,6 @@ export {
   Nav_Buttons,
   ChatList,
   Chat_History,
-  Message_options,
+  Message_Menu_Items,
   Actions
 };
