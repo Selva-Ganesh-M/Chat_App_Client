@@ -3,20 +3,23 @@ import { Avatar, Box, Divider, IconButton, Stack, Typography } from '@mui/materi
 import { useTheme } from "@mui/material/styles"
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { StyledBadge } from '../Badge/StyledBadge'
+import { toggleSidebar } from "../../redux/slices/app.slice"
 
 const Header = () => {
     const theme = useTheme()
+    const dispatch = useDispatch()
     return (
         <>
             {/* section - header '''''''''''''''''''''''''''''''''''''''''' */}
             <Box width={"100%"} sx={{ backgroundColor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background.paper }} p={2}>
 
                 {/* header container */}
-                <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"} sx={{ width: "100%", height: "100%" }} >
+                <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"} sx={{ width: "100%", height: "100%", cursor: "pointer" }} >
 
                     {/* LEFT: image + name & status */}
-                    <Stack direction={"row"} gap={2}>
+                    <Stack direction={"row"} gap={2} onClick={() => dispatch(toggleSidebar())}>
 
                         {/* part - image */}
                         <StyledBadge

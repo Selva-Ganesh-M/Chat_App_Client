@@ -18,8 +18,13 @@ const appSlice = createSlice({
     }
 })
 
-
+// actions
 export const { toggleSidebar, updateSidebarType } = appSlice.actions
+
+// selectors
+export const getApp = (state) => {
+    return state.app
+}
 
 
 const appReducer = appSlice.reducer
