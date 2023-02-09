@@ -149,13 +149,16 @@ const Chats = () => {
                 </Stack>
 
                 {/* wrapper: pinned + public messages */}
-                <Stack spacing={2} sx={{ flexGrow: 1, overflowY: "scroll" }}>
+                <Stack sx={{ flexGrow: 1, overflowY: "scroll" }}>
                     {/* custom scroll bar */}
                     {/* <SimpleBarStyle timeout={500} clickOnTrack={false}> */}
                     {/* section - pinned messages */}
-                    <Stack direction={"column"} spacing={2}>
+                    <Stack direction={"column"} sx={{ position: "relative" }} >
                         {/* title */}
-                        <Typography variant={"subtitle2"} sx={{ color: "#676767" }}>
+                        <Typography variant={"subtitle2"} py={2} sx={{
+                            color: "#676767", position: "sticky", top: 0,
+                            bgcolor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background.paper, zIndex: 25
+                        }}>
                             Pinned
                         </Typography>
 
@@ -169,9 +172,9 @@ const Chats = () => {
                     </Stack>
 
                     {/* section - public messages */}
-                    <Stack direction={"column"} spacing={2} pb={2}>
+                    <Stack direction={"column"} sx={{ position: "relative" }} >
                         {/* title */}
-                        <Typography variant={"subtitle2"} sx={{ color: "#676767" }}>
+                        <Typography variant={"subtitle2"} py={2} sx={{ color: "#676767", poition: "sticky", bgcolor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background.paper }}>
                             All Chats
                         </Typography>
 
@@ -189,7 +192,7 @@ const Chats = () => {
 
             </Stack>
 
-        </Box>
+        </Box >
     )
 }
 
