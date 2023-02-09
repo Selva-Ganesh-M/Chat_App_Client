@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, IconButton, Stack, Tab, Tabs, Typography } from '@mui/material'
 import { useTheme } from "@mui/material/styles"
-import { ArrowLeft } from 'phosphor-react'
+import { ArrowLeft, X } from 'phosphor-react'
 import { toggleSidebar, updateSidebarType } from '../../redux/slices/app.slice'
 import { useDispatch } from 'react-redux'
 import SharedImages from './sharedMediaTypes/SharedImages'
@@ -40,13 +40,25 @@ const Starred = () => {
                         <Typography variant="article" >
                             Starred Messages
                         </Typography>
+
                         {/* icon */}
-                        <IconButton onClick={() => {
-                            dispatch(toggleSidebar())
-                            dispatch(updateSidebarType("STARRED"))
-                        }}>
-                            <ArrowLeft />
-                        </IconButton>
+                        <Stack alignItems={"center"} direction={"row"} >
+
+                            {/* go back icon */}
+                            <IconButton onClick={() => {
+                                dispatch(updateSidebarType("CONTACT"))
+                            }}>
+                                <ArrowLeft />
+                            </IconButton>
+
+                            {/* close icon */}
+                            <IconButton onClick={() => {
+                                dispatch(toggleSidebar())
+                                dispatch(updateSidebarType("CONTACT"))
+                            }} >
+                                <X />
+                            </IconButton>
+                        </Stack>
                     </Stack>
                 </ Box>
 

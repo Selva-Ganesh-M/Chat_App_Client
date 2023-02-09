@@ -9,6 +9,12 @@ const appSlice = createSlice({
         }
     },
     reducers: {
+        showSidebar: (state) => {
+            state.sidebar.open = true
+        },
+        closeSidebar: (state) => {
+            state.sidebar.open = false
+        },
         toggleSidebar: (state) => {
             state.sidebar.open = !state.sidebar.open
         },
@@ -19,7 +25,7 @@ const appSlice = createSlice({
 })
 
 // actions
-export const { toggleSidebar, updateSidebarType } = appSlice.actions
+export const { toggleSidebar, updateSidebarType, closeSidebar, showSidebar } = appSlice.actions
 
 // selectors
 export const getApp = (state) => {

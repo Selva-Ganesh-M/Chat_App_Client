@@ -27,7 +27,9 @@ const Message = ({ menu }) => {
                                     case "reply":
                                         return <ReplyMsg item={item} key={index} menu={menu} />
                                     default:
-                                        return null
+                                        // this runs only if the item.subtype is null
+                                        // text msg
+                                        return <TextMsg item={item} key={index} menu={menu} />
                                 }
                         }
                     })

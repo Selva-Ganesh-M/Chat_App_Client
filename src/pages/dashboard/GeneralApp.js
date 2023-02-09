@@ -5,8 +5,8 @@ import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Conversation from "../../components/conversation";
 import Contact from "../../components/RightSwitchingSections/Contact";
-import { getApp } from "../../redux/slices/app.slice";
-import { useSelector } from "react-redux";
+import { closeSidebar, getApp, toggleSidebar } from "../../redux/slices/app.slice";
+import { useDispatch, useSelector } from "react-redux";
 import SharedMedia from "../../components/RightSwitchingSections/SharedMedia";
 import Starred from "../../components/RightSwitchingSections/Starred";
 
@@ -14,6 +14,12 @@ const GeneralApp = () => {
 
   const theme = useTheme();
   const app = useSelector(getApp);
+  const dispatch = useDispatch()
+  // side-effects
+  useEffect(() => {
+    // runs only on app's startup
+    dispatch(dispatch(closeSidebar()))
+  }, [])
 
   return (
     <>

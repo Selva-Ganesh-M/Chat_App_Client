@@ -3,13 +3,14 @@ import { Avatar, Box, Divider, IconButton, Stack, Typography } from '@mui/materi
 import { useTheme } from "@mui/material/styles"
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react'
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { StyledBadge } from '../Badge/StyledBadge'
-import { toggleSidebar, updateSidebarType } from "../../redux/slices/app.slice"
+import { getApp, showSidebar, toggleSidebar, updateSidebarType } from "../../redux/slices/app.slice"
 
 const Header = () => {
     const theme = useTheme()
     const dispatch = useDispatch()
+    const app = useSelector(getApp)
     return (
         <>
             {/* section - header '''''''''''''''''''''''''''''''''''''''''' */}
@@ -25,7 +26,9 @@ const Header = () => {
                         sx={{ cursor: "pointer" }}
                         onClick={() => {
                             dispatch(updateSidebarType("CONTACT"))
-                            dispatch(toggleSidebar())
+                            if (!app.sidebar.open) {
+                                dispatch(showSidebar())
+                            }
                         }}>
 
                         {/* part - image */}
