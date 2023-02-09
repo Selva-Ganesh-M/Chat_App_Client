@@ -21,7 +21,7 @@ const GeneralApp = () => {
         {/* section - conversations */}
         <Box
           sx={{
-            width: app.sidebar.open ? "calc(100vw - 720px)" : "calc(100vw - 420px)",
+            width: app.sidebar.open ? "calc(100vw - 740px)" : "calc(100vw - 420px)",
             transition: "width 0.5",
             backgroundColor: theme.palette.mode === "light" ? "#F0F4FA" : theme.palette.background.default,
           }}>
@@ -31,7 +31,7 @@ const GeneralApp = () => {
         {/* section - contact */}
         {
           app.sidebar.open && (
-            <Contact width={"320px"} />
+            <Contact />
           )
         }
       </Stack>
