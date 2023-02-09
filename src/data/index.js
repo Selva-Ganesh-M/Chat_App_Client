@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import {
+  Bell,
   Camera,
   ChatCircleDots,
   File,
