@@ -6,11 +6,35 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleSidebar, updateSidebarType } from '../../redux/slices/app.slice'
 import AntSwitch from '../AntSwitch'
+import { GeneralDilogue } from '../Dilogues/Dilogues'
 
 const Contact = () => {
     const theme = useTheme()
     const dispatch = useDispatch()
     const { sidebar } = useSelector(state => state.app)
+
+    // handling block button
+    const [Block, setBlock] = React.useState(false);
+
+    const handleBlockOpen = () => {
+        setBlock(true);
+    };
+
+    const handleBlockClose = () => {
+        setBlock(false);
+    };
+
+    // handle delete button
+    const [Delete, setDelete] = React.useState(false);
+
+    const handleDeleteOpen = () => {
+        setDelete(true);
+    };
+
+    const handleDeleteClose = () => {
+        setDelete(false);
+    };
+
     return (
         // cotact info - wrapper
         <Box width={"320px"} height="100vh">
@@ -223,12 +247,41 @@ const Contact = () => {
 
                         {/* section: block, delete */}
                         <Stack fullWidth direction={"row"} alignItems={"center"} justifyContent={"center"} gap={3}>
-                            <Button variant={"outlined"} sx={{ width: "40%" }} startIcon={<Prohibit />} >
+
+                            {/* block btn */}
+                            <Button
+                                variant={"outlined"}
+                                sx={{ width: "40%" }} startIcon={<Prohibit />}
+                                onClick={handleBlockOpen}
+                            >
                                 Block
                             </Button>
-                            <Button variant={"outlined"} sx={{ width: "40%" }} startIcon={<Trash />} >
+
+                            {/* block dilogue */}
+                            <GeneralDilogue
+                                open={Block}
+                                handleClose={handleBlockClose}
+                                question={"Do you reall want to block this contact?"}
+                            />
+
+                            {/* delete btn */}
+                            <Button
+                                variant={"outlined"}
+                                sx={{ width: "40%" }}
+                                startIcon={<Trash />}
+                                onClick={handleDeleteOpen}
+                            >
                                 Delete
                             </Button>
+
+                            {/* delete dilogue */}
+                            <GeneralDilogue
+                                open={Delete}
+                                handleClose={handleDeleteClose}
+                                question={"Do you reall want to block this contact?"}
+                            />
+
+
                         </Stack>
 
 
