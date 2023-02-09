@@ -3,11 +3,25 @@ import { Avatar, Box, Divider, IconButton, Stack, Typography } from '@mui/materi
 import { useTheme } from "@mui/material/styles"
 import { Bell, CaretLeft, Image, Info, Key, Keyboard, Lock, Note, PencilCircle } from 'phosphor-react'
 import React from 'react'
+import { useState } from 'react'
+import Shortcuts from '../../components/Dilogues/Settings/Shortcuts'
 import { useNeutralBg } from '../../hooks/useNeutralBg'
 
 const Settings = () => {
     const theme = useTheme()
     const neutralBg = useNeutralBg()
+
+
+    // #region : Shortcuts modal
+    const [openShortcuts, setOpenShortcuts] = useState(false)
+
+    const handleOpenShortcuts = () => {
+        setOpenShortcuts(true)
+    }
+    const handleCloseShortcuts = () => {
+        setOpenShortcuts(false)
+    }
+    //#endregion
 
 
     // const settings list
@@ -52,7 +66,7 @@ const Settings = () => {
             key: 6,
             icon: <Keyboard size={20} />,
             title: "Keyboard Shortcuts",
-            //   onclick: handleOpenShortcuts,
+            onclick: handleOpenShortcuts,
         },
         {
             key: 7,
@@ -61,6 +75,8 @@ const Settings = () => {
             onclick: () => { },
         },
     ];
+
+
     return (
         <>
             <Box width={"100%"} >
@@ -104,7 +120,7 @@ const Settings = () => {
                                                 spacing={2}
                                                 alignItems={"center"}
                                                 key={item.key}
-                                                onclick={item.onclick}
+                                                onClick={item.onclick}
                                                 sx={{ cursor: "pointer" }}
                                             >
                                                 <IconButton >
@@ -124,6 +140,14 @@ const Settings = () => {
                                     ))
                                 }
                             </Stack>
+
+                            {/* popup dialogues */}
+                            {
+                                openShortcuts && (
+                                    <Shortcuts open={openShortcuts} handleClose={handleCloseShortcuts} />
+                                )
+                            }
+
                         </Stack>
 
                     </Box>
