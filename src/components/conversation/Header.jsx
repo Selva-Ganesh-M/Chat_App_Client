@@ -5,7 +5,7 @@ import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { StyledBadge } from '../Badge/StyledBadge'
-import { toggleSidebar } from "../../redux/slices/app.slice"
+import { toggleSidebar, updateSidebarType } from "../../redux/slices/app.slice"
 
 const Header = () => {
     const theme = useTheme()
@@ -16,10 +16,17 @@ const Header = () => {
             <Box width={"100%"} sx={{ backgroundColor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background.paper }} p={2}>
 
                 {/* header container */}
-                <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"} sx={{ width: "100%", height: "100%", cursor: "pointer" }} >
+                <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"} sx={{ width: "100%", height: "100%" }} >
 
                     {/* LEFT: image + name & status */}
-                    <Stack direction={"row"} gap={2} onClick={() => dispatch(toggleSidebar())}>
+                    <Stack
+                        direction={"row"}
+                        gap={2}
+                        sx={{ cursor: "pointer" }}
+                        onClick={() => {
+                            dispatch(updateSidebarType("CONTACT"))
+                            dispatch(toggleSidebar())
+                        }}>
 
                         {/* part - image */}
                         <StyledBadge

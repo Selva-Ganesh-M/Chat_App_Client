@@ -4,9 +4,11 @@ import Chats from "./Chats";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Conversation from "../../components/conversation";
-import Contact from "../../components/contact/Contact";
+import Contact from "../../components/RightSwitchingSections/Contact";
 import { getApp } from "../../redux/slices/app.slice";
 import { useSelector } from "react-redux";
+import SharedMedia from "../../components/RightSwitchingSections/SharedMedia";
+import Starred from "../../components/RightSwitchingSections/Starred";
 
 const GeneralApp = () => {
 
@@ -31,8 +33,20 @@ const GeneralApp = () => {
         {/* section - contact */}
         {
           app.sidebar.open && (
-            <Contact />
-          )
+            () => {
+              switch (app.sidebar.type) {
+                case "CONTACT":
+                  return <Contact />
+                case "SHARED":
+                  return <SharedMedia />
+                case "STARRED":
+                  return <Starred />
+                default:
+                  return <Contact />
+
+              }
+            }
+          )()
         }
       </Stack>
     </>

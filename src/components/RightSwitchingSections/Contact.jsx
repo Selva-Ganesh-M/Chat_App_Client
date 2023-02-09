@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material/styles"
 import { Bell, BellSimple, CaretRight, Notification, Phone, Prohibit, Star, Trash, VideoCamera, X } from 'phosphor-react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleSidebar } from '../../redux/slices/app.slice'
+import { toggleSidebar, updateSidebarType } from '../../redux/slices/app.slice'
 import AntSwitch from '../AntSwitch'
 
 const Contact = () => {
@@ -135,7 +135,7 @@ const Contact = () => {
                                 <Typography variant={"subtitle2"}>
                                     Media, links and docs
                                 </Typography>
-                                <Button endIcon={<CaretRight />} >
+                                <Button endIcon={<CaretRight />} onClick={() => dispatch(updateSidebarType("SHARED"))} >
                                     201
                                 </Button>
                             </Stack>
@@ -169,7 +169,7 @@ const Contact = () => {
                                 </Typography>
                             </Stack>
 
-                            <IconButton>
+                            <IconButton onClick={() => dispatch(updateSidebarType("STARRED"))} >
                                 <CaretRight size={20} />
                             </IconButton>
                         </Stack>
