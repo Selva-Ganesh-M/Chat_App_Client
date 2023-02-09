@@ -18,7 +18,7 @@ const Conversation = () => {
 
             {/* section - message flow  `````````````````````````````````````````````````` */}
             <Box sx={{ flexGrow: 1, overflowY: "scroll" }} >
-                <Message />
+                <Message menu={true} />
             </Box>
 
             {/* footer */}

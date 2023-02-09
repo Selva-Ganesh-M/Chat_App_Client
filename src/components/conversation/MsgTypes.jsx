@@ -6,7 +6,7 @@ import MessageOptions from './MessageOptions'
 
 
 // document message
-const DocMsg = ({ item }) => {
+const DocMsg = ({ item, menu }) => {
     const theme = useTheme()
     return (
         <Stack direction={"row"} justifyContent={item.incoming ? "flex-start" : "flex-end"}>
@@ -44,14 +44,16 @@ const DocMsg = ({ item }) => {
             </Box>
 
             {/* menu */}
-            <MessageOptions />
+            {
+                menu && <MessageOptions />
+            }
         </Stack>
     )
 }
 
 // text message
 // handles [incoming, outgoing]
-const TextMsg = ({ item }) => {
+const TextMsg = ({ item, menu }) => {
     const theme = useTheme()
     return (
         <>
@@ -68,7 +70,7 @@ const TextMsg = ({ item }) => {
                 </Box>
 
                 {/* menu toggler */}
-                <MessageOptions />
+                {menu && <MessageOptions />}
 
                 {/* menu */}
 
@@ -78,7 +80,7 @@ const TextMsg = ({ item }) => {
 }
 
 // link msg
-const LinkMsg = ({ item }) => {
+const LinkMsg = ({ item, menu }) => {
     const theme = useTheme()
 
     return (
@@ -109,14 +111,14 @@ const LinkMsg = ({ item }) => {
                 </Stack>
             </Box>
             {/* menu */}
-            <MessageOptions />
+            {menu && <MessageOptions />}
         </Stack>
     )
 }
 
 
 // reply to a msg
-const ReplyMsg = ({ item }) => {
+const ReplyMsg = ({ item, menu }) => {
     const theme = useTheme()
     return <Stack direction={"row"} justifyContent={item.incoming ? "flex-start" : "flex-end"}>
         <Box
@@ -143,13 +145,13 @@ const ReplyMsg = ({ item }) => {
             </Stack>
         </Box>
         {/* menu */}
-        <MessageOptions />
+        {menu && <MessageOptions />}
     </Stack>
 }
 
 // media-msg
 // handles images
-const MediaMsg = ({ item }) => {
+const MediaMsg = ({ item, menu }) => {
     const theme = useTheme()
     return (
         <Stack direction={"row"} justifyContent={item.incoming ? "flex-start" : "flex-end"}>
@@ -181,7 +183,7 @@ const MediaMsg = ({ item }) => {
             </Box >
 
             {/* menu */}
-            <MessageOptions />
+            {menu && <MessageOptions />}
         </Stack >
     )
 }
