@@ -47,7 +47,7 @@ const Contact = () => {
                 </ Box>
 
                 {/* body */}
-                < Box px={1.5} pb={3} height={"100%"} width={"100%"} sx={{ overflowY: "scroll", position: "relative" }}>
+                < Box px={1.5} pb={3} width={"100%"} sx={{ overflowY: "scroll", position: "relative" }}>
 
                     <Stack spacing={2}>
 

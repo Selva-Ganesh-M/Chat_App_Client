@@ -18,7 +18,12 @@ const DocMsg = ({ item }) => {
                 {/* inner wrapper */}
                 <Stack spacing={2} >
                     {/* doc preview and download */}
-                    <Stack direction={"row"} alignItems="center" justifyContent={"space-between"} spacing={2}>
+                    <Stack
+                        direction={"row"}
+                        alignItems="center"
+                        justifyContent={"space-between"}
+                        spacing={2}
+                        sx={{ backgroundColor: theme.palette.background.paper, borderRadius: "10px" }}>
                         {/* img */}
                         <Image size={48} />
                         {/* name */}
@@ -148,6 +153,8 @@ const MediaMsg = ({ item }) => {
     const theme = useTheme()
     return (
         <Stack direction={"row"} justifyContent={item.incoming ? "flex-start" : "flex-end"}>
+
+            {/* actual msg */}
             <Box
                 p={1.5}
                 sx={{ backgroundColor: item.incoming ? theme.palette.background.default : theme.palette.primary.main }}
@@ -155,7 +162,11 @@ const MediaMsg = ({ item }) => {
                 width="max-content"
             >
                 <Stack spacing={1}>
+
+                    {/* image */}
                     <img src={item.img} alt="msg-img" style={{ borderRadius: "12px", maxHeight: "210px" }} />
+
+                    {/* msg content */}
                     <Box
                         p={1.5}
                         sx={{ backgroundColor: item.incoming ? theme.palette.background.paper : theme.palette.primary.main }}
@@ -168,6 +179,7 @@ const MediaMsg = ({ item }) => {
                     </Box>
                 </Stack>
             </Box >
+
             {/* menu */}
             <MessageOptions />
         </Stack >
