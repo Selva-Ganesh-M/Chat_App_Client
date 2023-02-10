@@ -12,12 +12,18 @@ import { Link as RouterLink } from "react-router-dom";
 const Loginform = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const LoginSchema = Yup.object({
+  //   yup schema
+  const LoginSchema = Yup.object().shape({
     email: Yup.string()
       .required("email is a required field")
       .email("enter a valid email"),
-    password: Yup.string().required("password is a required field"),
+    password: Yup.string()
+      .min(8)
+      .max(15)
+      .required("password is a required field"),
   });
+
+  // #region : useForm
 
   const defaultValues = {
     email: "demo@chatapp.com",
@@ -36,6 +42,9 @@ const Loginform = () => {
     handleSubmit,
   } = methods;
 
+  // #endregion
+
+  // handling functions
   const onSubmit = async () => {
     try {
       // send data to server
@@ -62,6 +71,7 @@ const Loginform = () => {
         {/* input fields */}
         <Stack width={"100%"} spacing={3}>
           <RhfTextField name={"email"} label="Email" />
+          {/* <p>{errors.email?.message}</p> */}
           <RhfTextField
             name={"password"}
             label="Password"
@@ -79,6 +89,7 @@ const Loginform = () => {
                 ))(),
             }}
           />
+          {/* <p>{errors.email?.message}</p> */}
         </Stack>
 
         {/* forget password */}
