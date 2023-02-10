@@ -42,6 +42,7 @@ const Sidebar = () => {
       >
         {/* container */}
         <Stack direction={"column"} justifyContent={"space-between"} height={"100%"}>
+
           {/* top part */}
           <Stack direction={"column"} alignItems={"center"} sx={{ width: "100%" }} spacing={3}>
             {/* logo */}
