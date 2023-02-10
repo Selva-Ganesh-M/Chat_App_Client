@@ -1,8 +1,7 @@
-import { Container, Link, Stack, Typography } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
 import logo from "../../assets/Images/logo.ico";
-import { Link as RouterLink } from "react-router-dom";
 
 const AuthLayout = () => {
   return (

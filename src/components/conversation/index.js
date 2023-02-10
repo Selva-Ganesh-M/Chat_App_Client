@@ -2,7 +2,6 @@ import { Stack, Box } from '@mui/material'
 import React from 'react'
 import Header from "./Header"
 import Footer from "./Footer"
-import { Timeline } from './MsgTypes'
 import Message from './Message'
 
 
